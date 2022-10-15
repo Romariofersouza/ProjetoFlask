@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/principal.css') }}"
+    />
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename = 'js/principal.js') }}"
+    ></script>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename = 'img/favicon.ico') }}"
+    />
+    {% if titulo %}
+    <title>{{ titulo }} - Projeto exemplo</title>
+    {% else %}
+    <title>Flask - Projeto exemplo</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>
+      Projeto exemplo:  <a href="{{ url_for('index') }}">Home</a>
+                        {% if current_user.is_anonymous %}
+                        <a href="{{ url_for('login') }}">Login</a>
+                        <a href="{{ url_for('cursos') }}">Cursos</a>
+                        {% else %}
+                        <a href="{{ url_for('cursos') }}">Cursos</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                        {% endif %}
+
+    </div>
+    <hr />
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %} 
+    {% block conteudo %}{% endblock %}
+  </body>
+</html>

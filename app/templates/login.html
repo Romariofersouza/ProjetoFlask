@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block conteudo %}
+ <h1>Login</h1>
+ <form action="" method="post" novalidate>
+ {{ formulario.hidden_tag() }}
+ <p>
+ {{ formulario.usuario.label }}<br>
+ {{ formulario.usuario(size=32) }}<br>
+ {% for error in formulario.usuario.errors %}
+ <span style="color: red;">[{{ error }}]</span>
+ {% endfor %}
+ </p>
+ <p>
+ {{ formulario.senha.label }}<br>
+ {{ formulario.senha(size=32) }}<br>
+ {% for error in formulario.senha.errors %}
+ <span style="color: red;">[{{ error }}]</span>
+ {% endfor %}
+ </p>
+ <p>{{ formulario.lembrar() }} {{ formulario.lembrar.label }}</p>
+ <p>{{ formulario.enviar() }}</p>
+ </form>
+{% endblock %}

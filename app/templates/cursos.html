@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    <h3>Cadastro de Cursos <button onclick="incluirCurso()">Adicionar</button></h3>
+
+    <table>
+         <thead>
+             <tr>
+                <th>Curso</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for curso in cursos %}
+            <tr>
+                <td>{{ curso.nome }}</td>
+                <td>
+                    <button onclick="editarCurso('{{curso.id}}')">Editar</button>
+                    <button onclick="excluirCurso('{{curso.id}}')">Excluir</button>
+                    <button onclick="cadastrarDisciplinas('{{curso.id}}')">
+                            Cadastrar disciplinas
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,2 @@
+FLASK_APP=prjflask.py
+FLASK_DEBUG=1

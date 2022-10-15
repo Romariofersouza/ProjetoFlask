@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block conteudo %}
+ <h1>Olá, {{ usuario.nome }}!</h1>
+ {% for disciplina in disciplinas %}
+ <div><p>- {{ disciplina.nome }}</p></div>
+ {% endfor %}
+ <div><button onclick="clique()">Clica em mim!</button></div>
+ <br>
+ <div>
+ <img
+ src="{{ url_for('static', filename = 'img/logo_app_flask.jpg') }}"
+ alt="Logo DW SENAC"
+ >
+ </div>
+{% endblock %}
