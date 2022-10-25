@@ -18,4 +18,8 @@ login.login_message = 'Para usar este aplicativo, é necessário fazer login!'
 
 db = SQLAlchemy(app)
 Migrate = Migrate(app, db)
-from app import rotas, modelos
+
+from app. controllers import rotas
+from app.models import modelos
+
+

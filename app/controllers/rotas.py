@@ -1,13 +1,13 @@
 from flask import render_template, flash, redirect, url_for
 from app import app,  db
-from app.formularios import FormularioLogin, FormularioCurso, FormularioDisciplina
+from app.models.formularios import FormularioLogin, FormularioCurso, FormularioDisciplina
 from flask_login import current_user, login_user
-from app.modelos import Usuario,  Curso, Disciplina
+from app.models.modelos import Usuario, Curso, Disciplina
 from flask_login import logout_user
 from flask_login import login_required
 from flask import request
 from werkzeug.urls import url_parse
-from app.modelos import Usuario
+
 
 
 @app.route('/')
@@ -144,4 +144,5 @@ def excluir_disciplina(idCurso, idDisciplina):
     db.session.commit()
     flash('A disciplina foi excluída com sucesso!')
     return redirect('/' + str(idCurso) + '/cadastrar_disciplinas')
+
 
